@@ -2,14 +2,11 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ThemeProvider } from './components/Theme';
-import StartScreen from './screens/startScreen';
 import MainMenuScreen from './screens/mainMenuScreen';
 import GameScreen from './screens/gameScreen';
 import GameOverScreen from './screens/gameOverScreen'; 
 import HighscoreScreen from './screens/highscoreScreen';
 import OptionScreen from './screens/optionScreen';
-import ShopScreen from './screens/shopScreen';
-import StatsScreen from './screens/StatsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,12 +14,7 @@ export default function App() {
     return (
         <ThemeProvider>
             <NavigationContainer>
-                <Stack.Navigator initialRouteName='Start'>
-                    <Stack.Screen
-                        name='Start'
-                        component={StartScreen}
-                        options={{ headerShown: false }}
-                    />
+                <Stack.Navigator initialRouteName='MainMenu'>
                     <Stack.Screen
                         name='MainMenu'
                         component={MainMenuScreen}
@@ -46,16 +38,6 @@ export default function App() {
                     <Stack.Screen
                         name='Options'
                         component={OptionScreen}
-                        options={{ headerShown: false }}
-                    />
-                    <Stack.Screen
-                        name='Shop'
-                        component={ShopScreen}
-                        options={{ headerShown: false }}
-                    />
-                    <Stack.Screen
-                        name='Stats'
-                        component={StatsScreen}
                         options={{ headerShown: false }}
                     />
                 </Stack.Navigator>

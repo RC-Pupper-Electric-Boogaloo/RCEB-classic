@@ -5,23 +5,13 @@ import { useTheme } from '../components/Theme';
 const GameOverScreen = ({ currentPoints, coinCount, onRestart, onShowHighscores, navigation }) => {
     const { isDarkMode } = useTheme();
 
-    const backgroundImage = isDarkMode
-        ? require('../assets/GameOverDark.jpg')
-        : require('../assets/GameOver.jpg');
+
 
     return (
-        <ImageBackground 
-            source={backgroundImage} 
-            style={styles.background}
-        >
+
             <View style={styles.container}>
                 
                 <Text style={styles.pointsText}>Your Score: {currentPoints}</Text> 
-
-                <View style={styles.coinsContainer}>
-                    <Image source={require('../assets/Coin.png')} style={styles.coinImage} />
-                    <Text style={styles.coinsText}>x {coinCount}</Text>  
-                </View>
 
                 <TouchableOpacity style={styles.button} onPress={onRestart}>
                     <Text style={styles.buttonText}>Play Again</Text>
@@ -38,7 +28,6 @@ const GameOverScreen = ({ currentPoints, coinCount, onRestart, onShowHighscores,
                     <Text style={styles.buttonText}>Main Menu</Text>
                 </TouchableOpacity>
             </View>
-        </ImageBackground>
     );
 };
 
